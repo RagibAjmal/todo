@@ -13,8 +13,15 @@
                 color: white;
             }
     </style>
+    <script>
+        if (document.monetization){
+            document.monetization.addEvevtListener('monetizationstart',()=> {
+                document.getElementById('body').classList.add('design')
+            })
+        }
+    </script>
 </head>
-<body class="design">
+<body id="body" class="">
     <h1>My To Do List</h1> 
     <form action="/addTodoItem/" method = "post">{% csrf_token %}
         <input type="text" name="content">
