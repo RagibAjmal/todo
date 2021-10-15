@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="todolist.css" media=”screen” />
     <meta name=”monetization” content=”$ilp.uphold.com/LJmbPn7WD4JB”>
 </head>
-<div class="body">
+<div className="body">
     <h1>My To Do List</h1> 
     <form action="/addTodoItem/" method = "post">{% csrf_token %}
         <input type="text" name="content">
