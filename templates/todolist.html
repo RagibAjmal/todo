@@ -1,22 +1,10 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="todolist.css" />
-        <meta name=”monetization” content=”$ilp.uphold.com/LJmbPn7WD4JB”>
-        <body>
-            <h1>My To Do List</h1> 
-            <form action="/addTodoItem/" method = "post">{% csrf_token %}
-                <input type="text" name="content">
-                <input type="submit" value="Add Todo Item">
-            </form> 
-            <ul>
-                {% for i in all_items %} 
-                <li>{{i.content}}
-                    <form action="/deleteTodoView/{{i.id}}/" method = "post">{% csrf_token %}
-                        <input type="submit" value="Delete">
-            </form>  
-                </li>
-                {% endfor %}
-            </ul> 
-        </body>
-    </head>
+  <head>
+    <title>Embedded Style Sample</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Embedded Style Sample testing</h1>
+    <h2>Next Line</h2>
+  </body>
 </html>
