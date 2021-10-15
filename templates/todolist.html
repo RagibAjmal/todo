@@ -1,39 +1,44 @@
-<head>
-    <meta name=”monetization” content=”$ilp.uphold.com/LJmbPn7WD4JB”>
-    <style>
-        .design {
-                background: rgb(63,94,251);
-                background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                font-size: calc(10px + 2vmin);
-                color: white;
+<html>
+    <head>
+        
+        <meta name="monetization" content="$ilp.uphold.com/LJmbPn7WD4JB">
+        
+        <style>
+            .design {
+                    background: rgb(63,94,251);
+                    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+                    min-height: 100vh;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: calc(10px + 2vmin);
+                    color: white;
+                }
+        </style>
+        <script>
+            if (document.monetization){
+                document.monetization.addEventListener('monetizationstart',()=> {
+                    document.getElementById('body').classList.add('design');
+                })
             }
-    </style>
-    <script>
-        if (document.monetization){
-            document.monetization.addEvevtListener('monetizationstart',()=> {
-                document.getElementById('body').classList.add('design')
-            })
-        }
-    </script>
-</head>
-<body id="body" class="">
-    <h1>My To Do List</h1> 
-    <form action="/addTodoItem/" method = "post">{% csrf_token %}
-        <input type="text" name="content">
-        <input type="submit" value="Add Todo Item">
-    </form> 
-    <ul>
-        {% for i in all_items %} 
-        <li>{{i.content}}
-            <form action="/deleteTodoView/{{i.id}}/" method = "post">{% csrf_token %}
-                <input type="submit" value="Delete">
-    </form>  
-        </li>
-        {% endfor %}
-    </ul> 
-</body>
+            
+        </script>
+    </head>
+    <body id="body" class="">
+        <h1>My To Do List</h1> 
+        <form action="/addTodoItem/" method = "post">{% csrf_token %}
+            <input type="text" name="content">
+            <input type="submit" value="Add Todo Item">
+        </form> 
+        <ul>
+            {% for i in all_items %} 
+            <li>{{i.content}}
+                <form action="/deleteTodoView/{{i.id}}/" method = "post">{% csrf_token %}
+                    <input type="submit" value="Delete">
+        </form>  
+            </li>
+            {% endfor %}
+        </ul> 
+    </body>
+</html>
