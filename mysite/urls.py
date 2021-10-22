@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from web.views import addTodoView ,deleteTodoView
+
 
 urlpatterns = [
     path('',include('web.urls')),
     path('admin/', admin.site.urls),
-    path('addTodoItem/',addTodoView),
-    path('deleteTodoView/<int:i>/', deleteTodoView), 
+    
 ]
